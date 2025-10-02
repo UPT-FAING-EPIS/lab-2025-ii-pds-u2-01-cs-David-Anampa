@@ -10,19 +10,39 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Debug|x64.Build.0 = Debug|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Debug|x86.Build.0 = Debug|Any CPU
 		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Release|x64.ActiveCfg = Release|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Release|x64.Build.0 = Release|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Release|x86.ActiveCfg = Release|Any CPU
+		{31A66361-D5C9-4BEB-8360-462554DF10A3}.Release|x86.Build.0 = Release|Any CPU
 		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Debug|x64.Build.0 = Debug|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Debug|x86.Build.0 = Debug|Any CPU
 		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Release|x64.ActiveCfg = Release|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Release|x64.Build.0 = Release|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Release|x86.ActiveCfg = Release|Any CPU
+		{6B9DCFAF-4EBF-4FC9-8686-A5006E489AD7}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal
