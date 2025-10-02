@@ -1,0 +1,65 @@
+name: Actividad02 - PackageNuget
+
+env:
+  DOTNET_VERSION: '8.0'
+
+on: push
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: Restore dependencies & Build solution
+        run: |
+          cd Bank
+          dotnet restore Bank.sln
+          dotnet build Bank.sln --configuration Release
+
+      - name: Run unit tests and collect results
+        run: |
+          cd Bank
+          dotnet test Bank.Domain.Tests/Bank.Domain.Tests.csproj --configuration Release --logger trx --results-directory TestResults
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: Bank/TestResults
+
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: Bank
+          args: >
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
+      - name: Pack nuget package
+        run: |
+          cd Bank
+          dotnet pack Bank.Domain/Bank.Domain.csproj -c Release \
+            -p:PackageVersion=2025.0929.${{ github.run_number }} \
+            -p:RepositoryUrl=https://github.com/${{ github.repository }} \
+            -p:RepositoryType=git
+
+      - name: nuget sources
+        run: dotnet nuget list source
+
+      - name: Push nuget package to GitHub Packages
+        run: |
+          cd Bank
+          dotnet nuget push Bank.Domain/bin/Release/*.nupkg --skip-duplicate --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key ${{ secrets.GITHUB_TOKEN }}
